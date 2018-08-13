@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h> 
 extern NSString *gSourceCodeDir;
 extern NSString *kNotificationPrint;
+extern NSString *kProjectFilePath;
 @interface MJB_Utils : NSObject
 
 void  executeModifyClassNamePrefix(NSString *oldClassNamePrefix,

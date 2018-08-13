@@ -8,6 +8,7 @@
 
 #import "MJB_Utils.h"
 extern NSString *gSourceCodeDir = @"";  //项目根路径
+extern NSString *kProjectFilePath = @"";  //工程文件路径
 extern NSString *kNotificationPrint = @"notificationPrint";
 @implementation MJB_Utils
 
@@ -21,32 +22,24 @@ void executeModifyClassNamePrefix(NSString *oldClassNamePrefix,
 		[[NSNotificationCenter defaultCenter]  postNotificationName:kNotificationPrint object:@"请赋值项目根路径..."];
 		return;
 	}
+    
+    if (kProjectFilePath.length == 0){
+        [[NSNotificationCenter defaultCenter]  postNotificationName:kNotificationPrint object:@"请工程文件根路径..."];
+        return;
+    }
 	
 	if (oldClassNamePrefix && newClassNamePrefix) {
 		[[NSNotificationCenter defaultCenter]  postNotificationName:kNotificationPrint object:@"开始修改类名前缀..."];
 		@autoreleasepool {
             //修改类文件名
-            newModifyFilesClassName(gSourceCodeDir, oldClassNamePrefix, newClassNamePrefix, ignoreDirNames);
-            
-            //打开文件 修改所有mm_
-            modifyFilesClassName(gSourceCodeDir, newClassNamePrefix);
-            
-			//修改工程文件的引用
-			NSError *error = nil;
-			NSMutableString *projectContent = [NSMutableString stringWithContentsOfFile:projectFilePath encoding:NSUTF8StringEncoding error:&error];
-			if (error) {
-				[[NSNotificationCenter defaultCenter]  postNotificationName:kNotificationPrint object:[NSString stringWithFormat:@"打开工程文件 %s 失败：%s\n", projectFilePath.UTF8String, error.localizedDescription.UTF8String]];
-				return;
-			}
-            regularReplacement(projectContent, @"^MM_$", newClassNamePrefix);
-			[projectContent writeToFile:projectFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+            newModifyFilesClassName(gSourceCodeDir);
 		}
 		[[NSNotificationCenter defaultCenter]  postNotificationName:kNotificationPrint object:@"修改类名前缀完成..."];
 	}
 }
 
 
-void newModifyFilesClassName(NSString *sourceCodeDir, NSString *oldClassNamePrefix, NSString *newClassNamePrefix, NSArray<NSString *> *ignoreDirNames){
+void newModifyFilesClassName(NSString *sourceCodeDir){
     NSFileManager *fm = [NSFileManager defaultManager];
     NSArray<NSString *> *files = [fm contentsOfDirectoryAtPath:sourceCodeDir error:nil];
     BOOL isDirectory;
@@ -54,25 +47,87 @@ void newModifyFilesClassName(NSString *sourceCodeDir, NSString *oldClassNamePref
         //stringByAppendingPathComponent 路径拼接
         NSString *path = [sourceCodeDir stringByAppendingPathComponent:filePath];
         if ([fm fileExistsAtPath:path isDirectory:&isDirectory] && isDirectory) {
-            newModifyFilesClassName(path, oldClassNamePrefix, newClassNamePrefix, ignoreDirNames);
+            newModifyFilesClassName(path);
             continue;
         }
         
-        NSString *fileName = filePath.lastPathComponent.stringByDeletingPathExtension;  //1、最后一个组成部分。2、删除扩展名
+        
+        NSString *oldClassName = filePath.lastPathComponent.stringByDeletingPathExtension;  //删除扩展名的文件名
+        NSString *oldCompleteClassName = filePath.lastPathComponent; //完整文件名
+        NSString *oldFilePath = [sourceCodeDir stringByAppendingPathComponent:oldCompleteClassName]; //完整路径名
         NSString *fileExtension = filePath.pathExtension;  //扩展名
-        if ([fileName hasPrefix:@"MM_"] || [fileName hasPrefix:@"mm_"]) {
-            NSString *oldFilePath = [[sourceCodeDir stringByAppendingPathComponent:fileName] stringByAppendingPathExtension:fileExtension];
-            NSMutableString *newClassName = [NSMutableString stringWithString:fileName];
-            [newClassName replaceCharactersInRange:NSMakeRange(0, 3) withString:newClassNamePrefix];
-            NSString *newFilePath = [[sourceCodeDir stringByAppendingPathComponent:newClassName] stringByAppendingPathExtension:fileExtension];
+        
+        if (!([fileExtension isEqualToString:@"h"]
+              || [fileExtension isEqualToString:@"m"]
+              || [fileExtension isEqualToString:@"pch"]
+              || [fileExtension isEqualToString:@"swift"]
+              || [fileExtension isEqualToString:@"xib"]
+              || [fileExtension isEqualToString:@"storyboard"]
+              || [fileExtension isEqualToString:@"json"]
+              || [fileExtension isEqualToString:@"html"]
+              || [fileExtension isEqualToString:@"plist"])){
+            continue;
+        }
+        
+        if(!isWhiteListClass(oldClassName)){
+            if ([oldClassName rangeOfString:@"+"].location != NSNotFound) {
+                //分类忽略
+                continue;
+            }
+            //修改文件
+            NSString *newClassName = getRandomClassName();
+            NSString *newCompleteClassName = [newClassName stringByAppendingPathExtension:fileExtension];
+            NSString *newFilePath = [sourceCodeDir stringByAppendingPathComponent:newCompleteClassName];
             renameFile(oldFilePath, newFilePath);
+            
+            //遍历文件。修改文件名（.m .xib） 和 分类
+            modifyClassificationFiles(oldClassName, newClassName, sourceCodeDir);
+            //混淆每个类中的代码
+            modifyFilesClassName(@"/Users/guochencheng41/Desktop/work/meme-ios/memezhibo", newClassName, oldClassName);
+            //修改工程文件的引用
+            modifyReferenceFile(kProjectFilePath, oldClassName, newClassName);
         }
     }
 }
 
-#pragma mark - 修改类名前缀
+//修改同同名的其它格式文件(.m、.xib) 以及 修改分类名称
+void modifyClassificationFiles(NSString *oldClassName, NSString *newClassName, NSString *sourceCodeDir){
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray<NSString *> *files = [fm contentsOfDirectoryAtPath:sourceCodeDir error:nil];
+    BOOL isDirectory;
+    for (NSString *filePath in files) {
+        NSString *path = [sourceCodeDir stringByAppendingPathComponent:filePath];
+        if ([fm fileExistsAtPath:path isDirectory:&isDirectory] && isDirectory) {
+            //文件夹忽略
+            continue;
+        }
+        
+        //同名 其它格式文件
+        NSString *fileName = filePath.lastPathComponent.stringByDeletingPathExtension;  //1、最后一个组成部分。2、删除扩展名
+        NSString *fileExtension = filePath.pathExtension;  //扩展名
+        if ([fileName isEqualToString:oldClassName]) {
+            //修改文件
+            NSString *oldFilePath = [[sourceCodeDir stringByAppendingPathComponent:fileName] stringByAppendingPathExtension:fileExtension];
+            NSString *newFilePath = [[sourceCodeDir stringByAppendingPathComponent:newClassName] stringByAppendingPathExtension:fileExtension];
+            renameFile(oldFilePath, newFilePath);
+        }
+        
+        //修改分类
+        if ([fileName rangeOfString:@"+"].location != NSNotFound) {
+            NSString *reallyClassName = [fileName substringToIndex:[fileName rangeOfString:@"+"].location];
+            if ([reallyClassName isEqualToString:oldClassName]) {
+                NSString *newClassificationName = [newClassName stringByAppendingString:[fileName substringFromIndex:[fileName rangeOfString:@"+"].location]];
+                //修改文件
+                NSString *oldFilePath = [[sourceCodeDir stringByAppendingPathComponent:fileName] stringByAppendingPathExtension:fileExtension];
+                NSString *newFilePath = [[sourceCodeDir stringByAppendingPathComponent:newClassificationName] stringByAppendingPathExtension:fileExtension];
+                renameFile(oldFilePath, newFilePath);
+            }
+        }
+    }
+}
+
 //遍历每个文件且打开内容 匹配要修改的类名
-void modifyFilesClassName(NSString *sourceCodeDir, NSString *newClassNamePrefix) {
+void modifyFilesClassName(NSString *sourceCodeDir, NSString *newClassName, NSString *oldClassName) {
 	// 文件内容 Const > DDConst (h,m,swift,xib,storyboard)
 	NSFileManager *fm = [NSFileManager defaultManager];
 	NSArray<NSString *> *files = [fm contentsOfDirectoryAtPath:sourceCodeDir error:nil];
@@ -81,12 +136,11 @@ void modifyFilesClassName(NSString *sourceCodeDir, NSString *newClassNamePrefix)
         //stringByAppendingPathComponent 路径拼接
 		NSString *path = [sourceCodeDir stringByAppendingPathComponent:filePath];
 		if ([fm fileExistsAtPath:path isDirectory:&isDirectory] && isDirectory) {
-			modifyFilesClassName(path, newClassNamePrefix);
+			modifyFilesClassName(path, newClassName, oldClassName);
 			continue;
 		}
-        
-        NSString *fileName = filePath.lastPathComponent;
-		if ([fileName hasSuffix:@".h"] || [fileName hasSuffix:@".m"] || [fileName hasSuffix:@".pch"] || [fileName hasSuffix:@".swift"] || [fileName hasSuffix:@".xib"] || [fileName hasSuffix:@".storyboard"]) {
+
+        if ((isNeedConfused(filePath.pathExtension))) {
             NSError *error = nil;
             NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
             if (error) {
@@ -94,7 +148,7 @@ void modifyFilesClassName(NSString *sourceCodeDir, NSString *newClassNamePrefix)
                 continue;
             }
             
-            BOOL isChanged = regularReplacement(fileContent, @"MM_", newClassNamePrefix);
+            BOOL isChanged = regularReplacement(fileContent, oldClassName, newClassName);
             if (!isChanged) continue;
             error = nil;
             [fileContent writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error];
@@ -105,17 +159,36 @@ void modifyFilesClassName(NSString *sourceCodeDir, NSString *newClassNamePrefix)
     }
 }
 
+void modifyReferenceFile(NSString *projectFilePath, NSString *oldName, NSString *newName){
+    NSError *error = nil;
+    NSMutableString *projectContent = [NSMutableString stringWithContentsOfFile:projectFilePath encoding:NSUTF8StringEncoding error:&error];
+    if (error) {
+        [[NSNotificationCenter defaultCenter]  postNotificationName:kNotificationPrint object:[NSString stringWithFormat:@"打开工程文件 %s 失败：%s\n", projectFilePath.UTF8String, error.localizedDescription.UTF8String]];
+        return;
+    }
+    regularReplacement(projectContent, oldName, newName);
+    [projectContent writeToFile:projectFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+}
 
-//将旧类名替换成新的
+
+//类文件名：旧类名替换成新的
 BOOL regularReplacement(NSMutableString *originalString, NSString *regularExpression, NSString *newString) {
 	__block BOOL isChanged = NO;
-	NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:regularExpression options:NSRegularExpressionAnchorsMatchLines|NSRegularExpressionUseUnixLineSeparators|NSRegularExpressionCaseInsensitive error:nil];
+    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:regularExpression options:NSRegularExpressionAnchorsMatchLines|NSRegularExpressionUseUnixLineSeparators error:nil];
 	NSArray<NSTextCheckingResult *> *matches = [expression matchesInString:originalString options:0 range:NSMakeRange(0, originalString.length)];
 	[matches enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSTextCheckingResult * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-		if (!isChanged) {
-			isChanged = YES;
-		}
-        [originalString replaceCharactersInRange:obj.range withString:newString];
+        //判断是否一个单独的字段
+        NSString *headStr = [originalString substringWithRange:NSMakeRange(obj.range.location - 1, 1)];
+        NSString *endStr = [originalString substringWithRange:NSMakeRange(obj.range.location + obj.range.length, 1)];
+        NSRegularExpression *tLetterRegularExpression = [NSRegularExpression regularExpressionWithPattern:@"[A-Za-z]" options:NSRegularExpressionCaseInsensitive error:nil];
+        NSInteger headStrCount = [tLetterRegularExpression numberOfMatchesInString:headStr options:NSMatchingReportProgress range:NSMakeRange(0, 1)];
+        NSInteger endStrCount = [tLetterRegularExpression numberOfMatchesInString:endStr options:NSMatchingReportProgress range:NSMakeRange(0, 1)];
+        if (headStrCount == 0 && endStrCount == 0) {
+            if (!isChanged) {
+                isChanged = YES;
+            }
+            [originalString replaceCharactersInRange:obj.range withString:newString];
+        }
 	}];
 	return isChanged;
 }
@@ -129,5 +202,38 @@ void renameFile(NSString *oldPath, NSString *newPath) {
 	}
 }
 
+BOOL isNeedConfused(NSString *fileExtension){
+    return ([fileExtension isEqualToString:@"h"]
+            || [fileExtension isEqualToString:@"m"]
+            || [fileExtension isEqualToString:@"pch"]
+            || [fileExtension isEqualToString:@"swift"]
+            || [fileExtension isEqualToString:@"xib"]
+            || [fileExtension isEqualToString:@"storyboard"]);
+}
+
+BOOL isWhiteListClass(NSString *className){
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"classWhiteList" ofType:@"plist"];
+    NSArray *arr = [NSArray arrayWithContentsOfFile:plistPath];
+    BOOL isWhiteListClass = NO;
+    for (NSString *whiteClassName in arr) {
+        if ([whiteClassName isEqualToString:className]) {
+            isWhiteListClass = YES;
+            break;
+        }
+    }
+    return isWhiteListClass;
+}
+
+NSString* getRandomClassName(){
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"classNameList" ofType:@"plist"];
+    NSArray *arr = [NSArray arrayWithContentsOfFile:plistPath];
+    NSInteger classNameWordNum = random() % 2 + 2;
+    NSString *className = [NSString string];
+    for (NSInteger index = 0; index < classNameWordNum; index++) {
+        NSInteger arrayIndex = random() % arr.count;
+        className = [className stringByAppendingString:arr[arrayIndex]];
+    }
+    return className;
+}
 
 @end

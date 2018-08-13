@@ -88,6 +88,8 @@
 		[self printRecord:[NSString stringWithFormat:@"修改类名前缀参数错误。参数示例：CC>DD，传入参数：%s\n", string.UTF8String]];
 		return;
 	}
+    
+    kProjectFilePath = projectFilePath;
 	
 	executeModifyClassNamePrefix(oldClassNamePrefix, newClassNamePrefix,ignoreDirNames, projectFilePath);
 }
