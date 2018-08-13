@@ -47,6 +47,7 @@ void newModifyFilesClassName(NSString *sourceCodeDir){
         //stringByAppendingPathComponent 路径拼接
         NSString *path = [sourceCodeDir stringByAppendingPathComponent:filePath];
         if ([fm fileExistsAtPath:path isDirectory:&isDirectory] && isDirectory) {
+            NSLog(@"进入路径%@",path);
             newModifyFilesClassName(path);
             continue;
         }
@@ -69,24 +70,28 @@ void newModifyFilesClassName(NSString *sourceCodeDir){
             continue;
         }
         
-        if(!isWhiteListClass(oldClassName)){
-            if ([oldClassName rangeOfString:@"+"].location != NSNotFound) {
-                //分类忽略
-                continue;
-            }
-            //修改文件
-            NSString *newClassName = getRandomClassName();
-            NSString *newCompleteClassName = [newClassName stringByAppendingPathExtension:fileExtension];
-            NSString *newFilePath = [sourceCodeDir stringByAppendingPathComponent:newCompleteClassName];
-            renameFile(oldFilePath, newFilePath);
-            
-            //遍历文件。修改文件名（.m .xib） 和 分类
-            modifyClassificationFiles(oldClassName, newClassName, sourceCodeDir);
-            //混淆每个类中的代码
-            modifyFilesClassName(@"/Users/guochencheng41/Desktop/work/meme-ios/memezhibo", newClassName, oldClassName);
-            //修改工程文件的引用
-            modifyReferenceFile(kProjectFilePath, oldClassName, newClassName);
+        if (isWhiteListClass(oldClassName)) {
+            NSLog(@"白名单类不混淆>>>>>>%@",oldCompleteClassName);
+            continue;
         }
+        
+        if ([oldClassName rangeOfString:@"+"].location != NSNotFound) {
+            NSLog(@"分类不混淆>>>>>>%@",oldClassName);
+            continue;
+        }
+
+        //修改文件
+        NSString *newClassName = getRandomClassName();
+        NSString *newCompleteClassName = [newClassName stringByAppendingPathExtension:fileExtension];
+        NSString *newFilePath = [sourceCodeDir stringByAppendingPathComponent:newCompleteClassName];
+        NSLog(@"开始修改 %@ 文件 新类名:%@",oldCompleteClassName,newCompleteClassName);
+        renameFile(oldFilePath, newFilePath);
+        //遍历文件。修改文件名（.m .xib） 和 分类
+        modifyClassificationFiles(oldClassName, newClassName, sourceCodeDir);
+        //混淆每个类中的代码
+        modifyFilesClassName(@"/Users/guochencheng41/Desktop/work/meme-ios/memezhibo", newClassName, oldClassName);
+        //修改工程文件的引用
+        modifyReferenceFile(kProjectFilePath, oldClassName, newClassName);
     }
 }
 
@@ -199,7 +204,9 @@ void renameFile(NSString *oldPath, NSString *newPath) {
 	[[NSFileManager defaultManager] moveItemAtPath:oldPath toPath:newPath error:&error];
 	if (error) {
 		printf("修改文件名称失败。\n  oldPath=%s\n  newPath=%s\n  ERROR:%s\n", oldPath.UTF8String, newPath.UTF8String, error.localizedDescription.UTF8String);
-	}
+    }else{
+        printf("修改文件名称成功。\n  oldPath=%s\n  newPath=%s\n", oldPath.UTF8String, newPath.UTF8String);
+    }
 }
 
 BOOL isNeedConfused(NSString *fileExtension){
