@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "MJB_Utils.h"
+#import "ConfusionClass.h"
 int main(int argc, const char * argv[]) {
 	
 	@autoreleasepool {

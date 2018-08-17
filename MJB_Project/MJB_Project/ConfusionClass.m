@@ -6,17 +6,13 @@
 //  Copyright © 2018年 wangzhi. All rights reserved.
 //
 
-#import "MJB_Utils.h"
+#import "ConfusionClass.h"
 extern NSString *gSourceCodeDir = @"";  //项目根路径
 extern NSString *kProjectFilePath = @"";  //工程文件路径
 extern NSString *kNotificationPrint = @"notificationPrint";
-@implementation MJB_Utils
+@implementation ConfusionClass
 
-//白名单最后加
-void executeModifyClassNamePrefix(NSString *oldClassNamePrefix,
-										 NSString *newClassNamePrefix,
-										 NSArray<NSString *> *ignoreDirNames,
-										 NSString *projectFilePath){
+void executeModifyClassNamePrefix(void){
 
 	if (gSourceCodeDir.length == 0){
 		[[NSNotificationCenter defaultCenter]  postNotificationName:kNotificationPrint object:@"请赋值项目根路径..."];
@@ -28,14 +24,12 @@ void executeModifyClassNamePrefix(NSString *oldClassNamePrefix,
         return;
     }
 	
-	if (oldClassNamePrefix && newClassNamePrefix) {
-		[[NSNotificationCenter defaultCenter]  postNotificationName:kNotificationPrint object:@"开始修改类名前缀..."];
-		@autoreleasepool {
-            //修改类文件名
-            newModifyFilesClassName(gSourceCodeDir);
-		}
-		[[NSNotificationCenter defaultCenter]  postNotificationName:kNotificationPrint object:@"修改类名前缀完成..."];
-	}
+    [[NSNotificationCenter defaultCenter]  postNotificationName:kNotificationPrint object:@"开始修改类名前缀..."];
+    @autoreleasepool {
+        //修改类文件名
+        newModifyFilesClassName(gSourceCodeDir);
+    }
+    [[NSNotificationCenter defaultCenter]  postNotificationName:kNotificationPrint object:@"修改类名前缀完成..."];
 }
 
 
@@ -89,7 +83,7 @@ void newModifyFilesClassName(NSString *sourceCodeDir){
         //遍历文件。修改文件名（.m .xib） 和 分类
         modifyClassificationFiles(oldClassName, newClassName, sourceCodeDir);
         //混淆每个类中的代码
-        modifyFilesClassName(@"/Users/guochencheng41/Desktop/work/meme-ios/memezhibo", newClassName, oldClassName);
+        modifyFilesClassName(gSourceCodeDir, newClassName, oldClassName);
         //修改工程文件的引用
         modifyReferenceFile(kProjectFilePath, oldClassName, newClassName);
     }

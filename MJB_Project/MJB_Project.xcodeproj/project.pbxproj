@@ -13,7 +13,10 @@
 		BC26813F210D524A001612CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC26813D210D524A001612CB /* Main.storyboard */; };
 		BC268142210D524A001612CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC268141210D524A001612CB /* main.m */; };
 		BC26814D210D524A001612CB /* MJB_ProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC26814C210D524A001612CB /* MJB_ProjectUITests.m */; };
-		BC268159210D5BD2001612CB /* MJB_Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BC268158210D5BD2001612CB /* MJB_Utils.m */; };
+		F10528FC21252E2C00C23252 /* ExportWhiteFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = F10528FB21252E2C00C23252 /* ExportWhiteFunction.m */; };
+		F176DA8C21212B83004D22A0 /* ConfusionFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = F176DA8B21212B83004D22A0 /* ConfusionFunction.m */; };
+		F176DA8F21212BB8004D22A0 /* ConfusionClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F176DA8D21212BB7004D22A0 /* ConfusionClass.m */; };
+		F1AF74B6212172D0004D0316 /* functionWhiteList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1AF74B5212172D0004D0316 /* functionWhiteList.plist */; };
 		F1FD76D8211C1AB3003F73AB /* classNameList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1FD76D7211C1AB3003F73AB /* classNameList.plist */; };
 		F1FD76DA211C74E9003F73AB /* classWhiteList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1FD76D9211C74E9003F73AB /* classWhiteList.plist */; };
 /* End PBXBuildFile section */
@@ -42,8 +45,13 @@
 		BC268148210D524A001612CB /* MJB_ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MJB_ProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC26814C210D524A001612CB /* MJB_ProjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJB_ProjectUITests.m; sourceTree = "<group>"; };
 		BC26814E210D524A001612CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BC268157210D5BD2001612CB /* MJB_Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJB_Utils.h; sourceTree = "<group>"; };
-		BC268158210D5BD2001612CB /* MJB_Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJB_Utils.m; sourceTree = "<group>"; };
+		F10528FA21252E2C00C23252 /* ExportWhiteFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExportWhiteFunction.h; sourceTree = "<group>"; };
+		F10528FB21252E2C00C23252 /* ExportWhiteFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExportWhiteFunction.m; sourceTree = "<group>"; };
+		F176DA8A21212B83004D22A0 /* ConfusionFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfusionFunction.h; sourceTree = "<group>"; };
+		F176DA8B21212B83004D22A0 /* ConfusionFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfusionFunction.m; sourceTree = "<group>"; };
+		F176DA8D21212BB7004D22A0 /* ConfusionClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfusionClass.m; sourceTree = "<group>"; };
+		F176DA8E21212BB8004D22A0 /* ConfusionClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfusionClass.h; sourceTree = "<group>"; };
+		F1AF74B5212172D0004D0316 /* functionWhiteList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = functionWhiteList.plist; sourceTree = "<group>"; };
 		F1FD76D7211C1AB3003F73AB /* classNameList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = classNameList.plist; sourceTree = "<group>"; };
 		F1FD76D9211C74E9003F73AB /* classWhiteList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = classWhiteList.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,19 +95,24 @@
 		BC268134210D5244001612CB /* MJB_Project */ = {
 			isa = PBXGroup;
 			children = (
-				BC268135210D5244001612CB /* AppDelegate.h */,
-				BC268136210D5244001612CB /* AppDelegate.m */,
+				F176DA8E21212BB8004D22A0 /* ConfusionClass.h */,
+				F176DA8D21212BB7004D22A0 /* ConfusionClass.m */,
+				F176DA8A21212B83004D22A0 /* ConfusionFunction.h */,
+				F176DA8B21212B83004D22A0 /* ConfusionFunction.m */,
 				BC268138210D5245001612CB /* ViewController.h */,
 				BC268139210D5245001612CB /* ViewController.m */,
+				F10528FA21252E2C00C23252 /* ExportWhiteFunction.h */,
+				F10528FB21252E2C00C23252 /* ExportWhiteFunction.m */,
+				F1FD76D7211C1AB3003F73AB /* classNameList.plist */,
+				F1FD76D9211C74E9003F73AB /* classWhiteList.plist */,
+				F1AF74B5212172D0004D0316 /* functionWhiteList.plist */,
 				BC26813B210D524A001612CB /* Assets.xcassets */,
+				BC268135210D5244001612CB /* AppDelegate.h */,
+				BC268136210D5244001612CB /* AppDelegate.m */,
 				BC26813D210D524A001612CB /* Main.storyboard */,
 				BC268140210D524A001612CB /* Info.plist */,
 				BC268141210D524A001612CB /* main.m */,
 				BC268143210D524A001612CB /* MJB_Project.entitlements */,
-				BC268157210D5BD2001612CB /* MJB_Utils.h */,
-				BC268158210D5BD2001612CB /* MJB_Utils.m */,
-				F1FD76D7211C1AB3003F73AB /* classNameList.plist */,
-				F1FD76D9211C74E9003F73AB /* classWhiteList.plist */,
 			);
 			path = MJB_Project;
 			sourceTree = "<group>";
@@ -201,6 +214,7 @@
 				BC26813C210D524A001612CB /* Assets.xcassets in Resources */,
 				F1FD76DA211C74E9003F73AB /* classWhiteList.plist in Resources */,
 				F1FD76D8211C1AB3003F73AB /* classNameList.plist in Resources */,
+				F1AF74B6212172D0004D0316 /* functionWhiteList.plist in Resources */,
 				BC26813F210D524A001612CB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,10 +233,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F176DA8C21212B83004D22A0 /* ConfusionFunction.m in Sources */,
+				F176DA8F21212BB8004D22A0 /* ConfusionClass.m in Sources */,
 				BC26813A210D5245001612CB /* ViewController.m in Sources */,
 				BC268142210D524A001612CB /* main.m in Sources */,
 				BC268137210D5245001612CB /* AppDelegate.m in Sources */,
-				BC268159210D5BD2001612CB /* MJB_Utils.m in Sources */,
+				F10528FC21252E2C00C23252 /* ExportWhiteFunction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,8 +385,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MJB_Project/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -378,6 +395,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "wz.MJB-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -385,8 +403,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MJB_Project/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -394,6 +413,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "wz.MJB-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
