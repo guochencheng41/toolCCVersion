@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		267D419121284A9700B6CE25 /* systemFunctionList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 267D419021284A9700B6CE25 /* systemFunctionList.plist */; };
 		BC268137210D5245001612CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC268136210D5244001612CB /* AppDelegate.m */; };
 		BC26813A210D5245001612CB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC268139210D5245001612CB /* ViewController.m */; };
 		BC26813C210D524A001612CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC26813B210D524A001612CB /* Assets.xcassets */; };
@@ -16,7 +17,6 @@
 		F10528FC21252E2C00C23252 /* ExportWhiteFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = F10528FB21252E2C00C23252 /* ExportWhiteFunction.m */; };
 		F176DA8C21212B83004D22A0 /* ConfusionFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = F176DA8B21212B83004D22A0 /* ConfusionFunction.m */; };
 		F176DA8F21212BB8004D22A0 /* ConfusionClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F176DA8D21212BB7004D22A0 /* ConfusionClass.m */; };
-		F1AF74B6212172D0004D0316 /* functionWhiteList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1AF74B5212172D0004D0316 /* functionWhiteList.plist */; };
 		F1FD76D8211C1AB3003F73AB /* classNameList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1FD76D7211C1AB3003F73AB /* classNameList.plist */; };
 		F1FD76DA211C74E9003F73AB /* classWhiteList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1FD76D9211C74E9003F73AB /* classWhiteList.plist */; };
 /* End PBXBuildFile section */
@@ -32,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		267D419021284A9700B6CE25 /* systemFunctionList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = systemFunctionList.plist; sourceTree = "<group>"; };
 		BC268132210D5244001612CB /* MJB_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJB_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC268135210D5244001612CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BC268136210D5244001612CB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,7 +52,6 @@
 		F176DA8B21212B83004D22A0 /* ConfusionFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfusionFunction.m; sourceTree = "<group>"; };
 		F176DA8D21212BB7004D22A0 /* ConfusionClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfusionClass.m; sourceTree = "<group>"; };
 		F176DA8E21212BB8004D22A0 /* ConfusionClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfusionClass.h; sourceTree = "<group>"; };
-		F1AF74B5212172D0004D0316 /* functionWhiteList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = functionWhiteList.plist; sourceTree = "<group>"; };
 		F1FD76D7211C1AB3003F73AB /* classNameList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = classNameList.plist; sourceTree = "<group>"; };
 		F1FD76D9211C74E9003F73AB /* classWhiteList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = classWhiteList.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,7 +105,7 @@
 				F10528FB21252E2C00C23252 /* ExportWhiteFunction.m */,
 				F1FD76D7211C1AB3003F73AB /* classNameList.plist */,
 				F1FD76D9211C74E9003F73AB /* classWhiteList.plist */,
-				F1AF74B5212172D0004D0316 /* functionWhiteList.plist */,
+				267D419021284A9700B6CE25 /* systemFunctionList.plist */,
 				BC26813B210D524A001612CB /* Assets.xcassets */,
 				BC268135210D5244001612CB /* AppDelegate.h */,
 				BC268136210D5244001612CB /* AppDelegate.m */,
@@ -214,7 +214,7 @@
 				BC26813C210D524A001612CB /* Assets.xcassets in Resources */,
 				F1FD76DA211C74E9003F73AB /* classWhiteList.plist in Resources */,
 				F1FD76D8211C1AB3003F73AB /* classNameList.plist in Resources */,
-				F1AF74B6212172D0004D0316 /* functionWhiteList.plist in Resources */,
+				267D419121284A9700B6CE25 /* systemFunctionList.plist in Resources */,
 				BC26813F210D524A001612CB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

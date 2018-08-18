@@ -94,12 +94,13 @@
     kProjectFilePath = projectFilePath;
 	
 //    executeModifyClassNamePrefix();
-//    ConfusionFunction *confusionFunction = [[ConfusionFunction alloc] init];
-//    confusionFunction.sourceCodeDir = gSourceCodeDir;
-//    [confusionFunction confusionFunction];
     
-    ExportWhiteFunction *exportWhiteFunction = [[ExportWhiteFunction alloc] init];
-    [exportWhiteFunction exportWhiteFunction:@"/Users/guochencheng41/Desktop/1"];
+    ConfusionFunction *confusionFunction = [[ConfusionFunction alloc] init];
+    confusionFunction.sourceCodeDir = gSourceCodeDir;
+    [confusionFunction confusionFunction];
+    
+//    ExportWhiteFunction *exportWhiteFunction = [[ExportWhiteFunction alloc] init];
+//    [exportWhiteFunction exportWhiteFunction:@"/Users/guochencheng/Desktop/白名单函数/1"];
 }
 
 

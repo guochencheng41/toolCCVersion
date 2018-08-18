@@ -23,7 +23,7 @@ static NSString* const kNotificationPrint = @"notificationPrint";
     if (self) {
         self.confusionNameArray = [NSMutableArray arrayWithCapacity:0];
         self.functionWhiteList = [NSMutableArray arrayWithCapacity:0];
-        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"functionWhiteList" ofType:@"plist"];
+        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"systemFunctionList" ofType:@"plist"];
         NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:plistPath];
         for (NSArray *array in dic.allValues) {
             [self.functionWhiteList addObjectsFromArray:array];

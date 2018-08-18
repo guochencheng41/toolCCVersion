@@ -53,6 +53,11 @@
         
         [self searchFunctionName:fileContent regularExpression:@"\\- \\(void\\)"];
     }
+    
+    //路径直接写死了
+//    if (self.functionNameArray.count > 0) {
+//        [self.functionNameArray writeToFile:@"/Users/guochencheng/Desktop/myProject/mjbCcTool/MJB_Project/MJB_Project/systemFunctionList.plist" atomically:YES];
+//    }
 }
 
 //类文件名：旧类名替换成新的
