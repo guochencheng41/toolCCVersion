@@ -35,14 +35,8 @@
             continue;
         }
         
-        NSString *oldClassName = filePath.lastPathComponent.stringByDeletingPathExtension;  //删除扩展名的文件名
-        NSString *oldCompleteClassName = filePath.lastPathComponent; //完整文件名
-        NSString *oldFilePath = [sourceCodeDir stringByAppendingPathComponent:oldCompleteClassName]; //完整路径名
         NSString *fileExtension = filePath.pathExtension;  //扩展名
-        
-        if (![fileExtension isEqualToString:@"h"]){
-            continue;
-        }
+        if (![fileExtension isEqualToString:@"h"]) continue;
 
         NSError *error = nil;
         NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
@@ -52,12 +46,16 @@
         }
         
         [self searchFunctionName:fileContent regularExpression:@"\\- \\(void\\)"];
+        [self searchFunctionName:fileContent regularExpression:@"\\- \\(BOOL\\)"];
+        [self searchFunctionName:fileContent regularExpression:@"\\- \\(instancetype\\)"];
     }
     
     //路径直接写死了
-//    if (self.functionNameArray.count > 0) {
-//        [self.functionNameArray writeToFile:@"/Users/guochencheng/Desktop/myProject/mjbCcTool/MJB_Project/MJB_Project/systemFunctionList.plist" atomically:YES];
-//    }
+    if (self.functionNameArray.count > 0) {
+        NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:0];
+        [dic setObject:self.functionNameArray forKey:@"FrameworkFunction"];
+        [dic writeToFile:@"/Users/guochencheng/Desktop/myProject/mjbCcTool/MJB_Project/MJB_Project/frameworkWhiteList.plist" atomically:YES];
+    }
 }
 
 //类文件名：旧类名替换成新的

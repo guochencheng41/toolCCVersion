@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Hybird</key>
+	<array>
+		<string>callHandlerNotify</string>
+		<string>updateContentByUrl</string>
+		<string>clearCache</string>
+		<string>configureOnce</string>
+	</array>
+	<key>SpecialCase</key>
+	<array>
+		<string>objectForKey</string>
+		<string>chatMultiLineView</string>
+		<string>constraint</string>
+		<string>hiddenNewerChatGuide</string>
+		<string>share</string>
+		<string>releaseSource</string>
+		<string>growingTextView</string>
+		<string>install</string>
+		<string>set</string>
+		<string>config</string>
+		<string>init</string>
+		<string>anchorLevel</string>
+		<string>label</string>
+		<string>message</string>
+	</array>
+</dict>
+</plist>

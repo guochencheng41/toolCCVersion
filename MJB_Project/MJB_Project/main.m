@@ -11,8 +11,6 @@
 int main(int argc, const char * argv[]) {
 	
 	@autoreleasepool {
-		//gSourceCodeDir = @"/Users/wangzhi/Downloads/PresentAnimView-master/presentAnimation/presentAnimation";
-		//executeModifyClassNamePrefix(@"MM_", @"TT", nil, @"/Users/wangzhi/Downloads/PresentAnimView-master/presentAnimation/presentAnimation.xcodeproj/project.pbxproj");
 	}
 	
 	return NSApplicationMain(argc, argv);

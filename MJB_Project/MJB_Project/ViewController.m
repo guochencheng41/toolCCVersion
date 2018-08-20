@@ -54,10 +54,7 @@
 ///开始执行
 - (IBAction)startAction:(id)sender {
 	self.mjb_recordTextView.string=@"";
-	
-	BOOL isDirectory = NO;
-	NSArray<NSString *> *ignoreDirNames = [self.mjb_ignoreDirTextField.stringValue componentsSeparatedByString:@","];
-	NSFileManager *fm = [NSFileManager defaultManager];
+
 //    if (gSourceCodeDir.length == 0) {
 //        [self printRecord:[NSString stringWithFormat:@"工程目录的路径不能为空"]];
 //        return;
@@ -71,36 +68,20 @@
 	
 	
 	NSString* projectFilePath = [string stringByAppendingPathComponent:@"project.pbxproj"];
-//    if (![fm fileExistsAtPath:string isDirectory:&isDirectory] || !isDirectory
-//        || ![fm fileExistsAtPath:projectFilePath isDirectory:&isDirectory] || isDirectory) {
-//        [self printRecord:[NSString stringWithFormat:@"修改类名前缀的工程文件参数错误。%s", string.UTF8String]];
-//        //printf("修改类名前缀的工程文件参数错误。%s", string.UTF8String);
-//        return;
-//    }
-	
-//    string = self.mjb_methodPrefix.stringValue;
-//    NSArray<NSString *> *names = [string componentsSeparatedByString:@">"];
-//    if (names.count < 2) {
-//        [self printRecord:[NSString stringWithFormat:@"修改类名前缀参数错误。参数示例：CC>DD，传入参数：%s", string.UTF8String]];
-//        return;
-//    }
-//    NSString* oldClassNamePrefix = names[0];
-//    NSString* newClassNamePrefix = names[1];
-//    if (oldClassNamePrefix.length <= 0 || newClassNamePrefix.length <= 0) {
-//        [self printRecord:[NSString stringWithFormat:@"修改类名前缀参数错误。参数示例：CC>DD，传入参数：%s\n", string.UTF8String]];
-//        return;
-//    }
     
     kProjectFilePath = projectFilePath;
 	
-//    executeModifyClassNamePrefix();
+    //混淆类名
+    executeModifyClassNamePrefix();
     
-    ConfusionFunction *confusionFunction = [[ConfusionFunction alloc] init];
-    confusionFunction.sourceCodeDir = gSourceCodeDir;
-    [confusionFunction confusionFunction];
+    //混淆函数名
+//    ConfusionFunction *confusionFunction = [[ConfusionFunction alloc] init];
+//    confusionFunction.sourceCodeDir = gSourceCodeDir;
+//    [confusionFunction confusionFunction];
     
+    //导出函数白名单
 //    ExportWhiteFunction *exportWhiteFunction = [[ExportWhiteFunction alloc] init];
-//    [exportWhiteFunction exportWhiteFunction:@"/Users/guochencheng/Desktop/白名单函数/1"];
+//    [exportWhiteFunction exportWhiteFunction:@"/Users/guochencheng/Desktop/白名单函数"];
 }
 
 

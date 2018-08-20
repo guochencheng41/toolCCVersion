@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		267D419121284A9700B6CE25 /* systemFunctionList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 267D419021284A9700B6CE25 /* systemFunctionList.plist */; };
+		2690F634212A6B8400EF7FDB /* functionWhiteList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2690F633212A6B8400EF7FDB /* functionWhiteList.plist */; };
+		2690F636212AA36E00EF7FDB /* frameworkWhiteList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2690F635212AA36E00EF7FDB /* frameworkWhiteList.plist */; };
 		BC268137210D5245001612CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC268136210D5244001612CB /* AppDelegate.m */; };
 		BC26813A210D5245001612CB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC268139210D5245001612CB /* ViewController.m */; };
 		BC26813C210D524A001612CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC26813B210D524A001612CB /* Assets.xcassets */; };
@@ -32,7 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		267D419021284A9700B6CE25 /* systemFunctionList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = systemFunctionList.plist; sourceTree = "<group>"; };
+		2690F633212A6B8400EF7FDB /* functionWhiteList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = functionWhiteList.plist; sourceTree = "<group>"; };
+		2690F635212AA36E00EF7FDB /* frameworkWhiteList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = frameworkWhiteList.plist; sourceTree = "<group>"; };
 		BC268132210D5244001612CB /* MJB_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJB_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC268135210D5244001612CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BC268136210D5244001612CB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -95,17 +97,18 @@
 		BC268134210D5244001612CB /* MJB_Project */ = {
 			isa = PBXGroup;
 			children = (
+				BC268138210D5245001612CB /* ViewController.h */,
+				BC268139210D5245001612CB /* ViewController.m */,
 				F176DA8E21212BB8004D22A0 /* ConfusionClass.h */,
 				F176DA8D21212BB7004D22A0 /* ConfusionClass.m */,
 				F176DA8A21212B83004D22A0 /* ConfusionFunction.h */,
 				F176DA8B21212B83004D22A0 /* ConfusionFunction.m */,
-				BC268138210D5245001612CB /* ViewController.h */,
-				BC268139210D5245001612CB /* ViewController.m */,
 				F10528FA21252E2C00C23252 /* ExportWhiteFunction.h */,
 				F10528FB21252E2C00C23252 /* ExportWhiteFunction.m */,
 				F1FD76D7211C1AB3003F73AB /* classNameList.plist */,
 				F1FD76D9211C74E9003F73AB /* classWhiteList.plist */,
-				267D419021284A9700B6CE25 /* systemFunctionList.plist */,
+				2690F633212A6B8400EF7FDB /* functionWhiteList.plist */,
+				2690F635212AA36E00EF7FDB /* frameworkWhiteList.plist */,
 				BC26813B210D524A001612CB /* Assets.xcassets */,
 				BC268135210D5244001612CB /* AppDelegate.h */,
 				BC268136210D5244001612CB /* AppDelegate.m */,
@@ -211,11 +214,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2690F634212A6B8400EF7FDB /* functionWhiteList.plist in Resources */,
 				BC26813C210D524A001612CB /* Assets.xcassets in Resources */,
 				F1FD76DA211C74E9003F73AB /* classWhiteList.plist in Resources */,
 				F1FD76D8211C1AB3003F73AB /* classNameList.plist in Resources */,
-				267D419121284A9700B6CE25 /* systemFunctionList.plist in Resources */,
 				BC26813F210D524A001612CB /* Main.storyboard in Resources */,
+				2690F636212AA36E00EF7FDB /* frameworkWhiteList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
