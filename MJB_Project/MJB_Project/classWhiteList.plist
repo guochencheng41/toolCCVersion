@@ -9,6 +9,14 @@
 	<string>iosConfusionTest</string>
 	<string>AppDelegate</string>
 	<string>Masonry</string>
+	<string>Chat</string>
 	<string>ViewController</string>
+	<string>DataGlobalKit</string>
+	<string>TTSingleLineView</string>
+	<string>ZegoVideoFilterFactoryDemo</string>
+	<string>FilterCondition</string>
+	<string>TTShowUser</string>
+	<string>FileUtils</string>
+	<string>TTShowUIManager</string>
 </array>
 </plist>

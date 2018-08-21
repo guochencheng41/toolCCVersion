@@ -10,13 +10,19 @@
 #import "ConfusionClass.h"
 #import "ConfusionFunction.h"
 #import "ExportWhiteFunction.h"
+@interface ViewController()
+
+@property (nonatomic, strong) NSString *sourceCodeDir;
+
+@property (nonatomic, strong) NSString *projectFilePath;
+
+@end
 @implementation ViewController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	self.mjb_rootProjectTextField.editable = NO;
 	self.mjb_pbTextField.editable = NO;
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(printMessage:) name:kNotificationPrint object:nil];
 	// Do any additional setup after loading the view.
 }
 
@@ -38,7 +44,7 @@
 	__weak typeof(self)weakSelf = self;
 	[self selectfoldPath:^(NSString *p) {
 		weakSelf.mjb_rootProjectTextField.stringValue = p;
-		gSourceCodeDir = p;
+		self.sourceCodeDir = p;
 	}];
 }
 
@@ -46,6 +52,8 @@
 	__weak typeof(self)weakSelf = self;
 	[self selectfoldPath:^(NSString *p) {
 		weakSelf.mjb_pbTextField.stringValue = p;
+        NSString* projectFilePath = [p stringByAppendingPathComponent:@"project.pbxproj"];
+        self.projectFilePath = projectFilePath;
 	}];
 }
 
@@ -53,26 +61,11 @@
 
 ///开始执行
 - (IBAction)startAction:(id)sender {
-	self.mjb_recordTextView.string=@"";
-
-//    if (gSourceCodeDir.length == 0) {
-//        [self printRecord:[NSString stringWithFormat:@"工程目录的路径不能为空"]];
-//        return;
-//    }
-	
-	NSString *string = self.mjb_pbTextField.stringValue;
-//    if (string.length == 0){
-//        [self printRecord:[NSString stringWithFormat:@"工程xcodeproj文件的路径不能为空"]];
-//        return;
-//    }
-	
-	
-	NSString* projectFilePath = [string stringByAppendingPathComponent:@"project.pbxproj"];
-    
-    kProjectFilePath = projectFilePath;
-	
     //混淆类名
-    executeModifyClassNamePrefix();
+    ConfusionClass *confusionClass = [[ConfusionClass alloc] init];
+    confusionClass.sourceCodeDir = self.sourceCodeDir;
+    confusionClass.projectFilePath = self.projectFilePath;
+    [confusionClass confusionClassName];
     
     //混淆函数名
 //    ConfusionFunction *confusionFunction = [[ConfusionFunction alloc] init];

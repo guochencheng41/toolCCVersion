@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h> 
-extern NSString *gSourceCodeDir;
-extern NSString *kNotificationPrint;
-extern NSString *kProjectFilePath;
 @interface ConfusionClass : NSObject
 
-void  executeModifyClassNamePrefix(void);
+//项目根路径
+@property (nonatomic, strong) NSString *sourceCodeDir;
+
+//工程文件路径
+@property (nonatomic, strong) NSString *projectFilePath;
+
+- (void)confusionClassName;
  
 @end
