@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2690F634212A6B8400EF7FDB /* functionWhiteList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2690F633212A6B8400EF7FDB /* functionWhiteList.plist */; };
-		2690F636212AA36E00EF7FDB /* frameworkWhiteList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2690F635212AA36E00EF7FDB /* frameworkWhiteList.plist */; };
+		266DB080213008C200FA2E93 /* staticVariableNameLsit.plist in Resources */ = {isa = PBXBuildFile; fileRef = 266DB07F213008C200FA2E93 /* staticVariableNameLsit.plist */; };
+		266F1E9B2133948A0014F022 /* ConfusionStaticVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = 266F1E992133948A0014F022 /* ConfusionStaticVariable.m */; };
+		266F1E9F213399E40014F022 /* classWhiteList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 266F1E9D213399E40014F022 /* classWhiteList.plist */; };
+		266F1EA0213399E40014F022 /* classNameList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 266F1E9E213399E40014F022 /* classNameList.plist */; };
+		266F1EA821339A260014F022 /* functionWhiteList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 266F1EA221339A250014F022 /* functionWhiteList.plist */; };
+		266F1EA921339A260014F022 /* ConfusionFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 266F1EA421339A250014F022 /* ConfusionFunction.m */; };
+		266F1EAA21339A260014F022 /* ExportWhiteFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 266F1EA521339A250014F022 /* ExportWhiteFunction.m */; };
+		266F1EAB21339A260014F022 /* frameworkWhiteList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 266F1EA621339A250014F022 /* frameworkWhiteList.plist */; };
+		266F1EAE21339C280014F022 /* ConfusionClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 266F1EAD21339C280014F022 /* ConfusionClass.m */; };
+		266F1EB02133AEB20014F022 /* variableWhiteList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 266F1EAF2133AEB20014F022 /* variableWhiteList.plist */; };
+		266F1EB32133CCC80014F022 /* ToolClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 266F1EB22133CCC80014F022 /* ToolClass.m */; };
 		BC268137210D5245001612CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC268136210D5244001612CB /* AppDelegate.m */; };
 		BC26813A210D5245001612CB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC268139210D5245001612CB /* ViewController.m */; };
 		BC26813C210D524A001612CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC26813B210D524A001612CB /* Assets.xcassets */; };
 		BC26813F210D524A001612CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC26813D210D524A001612CB /* Main.storyboard */; };
 		BC268142210D524A001612CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC268141210D524A001612CB /* main.m */; };
 		BC26814D210D524A001612CB /* MJB_ProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC26814C210D524A001612CB /* MJB_ProjectUITests.m */; };
-		F10528FC21252E2C00C23252 /* ExportWhiteFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = F10528FB21252E2C00C23252 /* ExportWhiteFunction.m */; };
-		F176DA8C21212B83004D22A0 /* ConfusionFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = F176DA8B21212B83004D22A0 /* ConfusionFunction.m */; };
-		F176DA8F21212BB8004D22A0 /* ConfusionClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F176DA8D21212BB7004D22A0 /* ConfusionClass.m */; };
-		F1FD76D8211C1AB3003F73AB /* classNameList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1FD76D7211C1AB3003F73AB /* classNameList.plist */; };
-		F1FD76DA211C74E9003F73AB /* classWhiteList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1FD76D9211C74E9003F73AB /* classWhiteList.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,8 +37,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2690F633212A6B8400EF7FDB /* functionWhiteList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = functionWhiteList.plist; sourceTree = "<group>"; };
-		2690F635212AA36E00EF7FDB /* frameworkWhiteList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = frameworkWhiteList.plist; sourceTree = "<group>"; };
+		266DB07F213008C200FA2E93 /* staticVariableNameLsit.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = staticVariableNameLsit.plist; sourceTree = "<group>"; };
+		266F1E992133948A0014F022 /* ConfusionStaticVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfusionStaticVariable.m; sourceTree = "<group>"; };
+		266F1E9A2133948A0014F022 /* ConfusionStaticVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfusionStaticVariable.h; sourceTree = "<group>"; };
+		266F1E9D213399E40014F022 /* classWhiteList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = classWhiteList.plist; sourceTree = "<group>"; };
+		266F1E9E213399E40014F022 /* classNameList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = classNameList.plist; sourceTree = "<group>"; };
+		266F1EA221339A250014F022 /* functionWhiteList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = functionWhiteList.plist; sourceTree = "<group>"; };
+		266F1EA321339A250014F022 /* ExportWhiteFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportWhiteFunction.h; sourceTree = "<group>"; };
+		266F1EA421339A250014F022 /* ConfusionFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfusionFunction.m; sourceTree = "<group>"; };
+		266F1EA521339A250014F022 /* ExportWhiteFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportWhiteFunction.m; sourceTree = "<group>"; };
+		266F1EA621339A250014F022 /* frameworkWhiteList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = frameworkWhiteList.plist; sourceTree = "<group>"; };
+		266F1EA721339A250014F022 /* ConfusionFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfusionFunction.h; sourceTree = "<group>"; };
+		266F1EAC21339C280014F022 /* ConfusionClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfusionClass.h; sourceTree = "<group>"; };
+		266F1EAD21339C280014F022 /* ConfusionClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfusionClass.m; sourceTree = "<group>"; };
+		266F1EAF2133AEB20014F022 /* variableWhiteList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = variableWhiteList.plist; sourceTree = "<group>"; };
+		266F1EB12133CCC80014F022 /* ToolClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolClass.h; sourceTree = "<group>"; };
+		266F1EB22133CCC80014F022 /* ToolClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolClass.m; sourceTree = "<group>"; };
 		BC268132210D5244001612CB /* MJB_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJB_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC268135210D5244001612CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BC268136210D5244001612CB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -48,14 +66,6 @@
 		BC268148210D524A001612CB /* MJB_ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MJB_ProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC26814C210D524A001612CB /* MJB_ProjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJB_ProjectUITests.m; sourceTree = "<group>"; };
 		BC26814E210D524A001612CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F10528FA21252E2C00C23252 /* ExportWhiteFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExportWhiteFunction.h; sourceTree = "<group>"; };
-		F10528FB21252E2C00C23252 /* ExportWhiteFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExportWhiteFunction.m; sourceTree = "<group>"; };
-		F176DA8A21212B83004D22A0 /* ConfusionFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfusionFunction.h; sourceTree = "<group>"; };
-		F176DA8B21212B83004D22A0 /* ConfusionFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfusionFunction.m; sourceTree = "<group>"; };
-		F176DA8D21212BB7004D22A0 /* ConfusionClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfusionClass.m; sourceTree = "<group>"; };
-		F176DA8E21212BB8004D22A0 /* ConfusionClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfusionClass.h; sourceTree = "<group>"; };
-		F1FD76D7211C1AB3003F73AB /* classNameList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = classNameList.plist; sourceTree = "<group>"; };
-		F1FD76D9211C74E9003F73AB /* classWhiteList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = classWhiteList.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +86,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		266F1E982133948A0014F022 /* 静态变量 */ = {
+			isa = PBXGroup;
+			children = (
+				266F1E9A2133948A0014F022 /* ConfusionStaticVariable.h */,
+				266F1E992133948A0014F022 /* ConfusionStaticVariable.m */,
+				266DB07F213008C200FA2E93 /* staticVariableNameLsit.plist */,
+				266F1EAF2133AEB20014F022 /* variableWhiteList.plist */,
+			);
+			path = "静态变量";
+			sourceTree = "<group>";
+		};
+		266F1E9C213399E40014F022 /* 类名混淆 */ = {
+			isa = PBXGroup;
+			children = (
+				266F1EAC21339C280014F022 /* ConfusionClass.h */,
+				266F1EAD21339C280014F022 /* ConfusionClass.m */,
+				266F1E9D213399E40014F022 /* classWhiteList.plist */,
+				266F1E9E213399E40014F022 /* classNameList.plist */,
+			);
+			path = "类名混淆";
+			sourceTree = "<group>";
+		};
+		266F1EA121339A250014F022 /* 函数名混淆 */ = {
+			isa = PBXGroup;
+			children = (
+				266F1EA721339A250014F022 /* ConfusionFunction.h */,
+				266F1EA421339A250014F022 /* ConfusionFunction.m */,
+				266F1EA321339A250014F022 /* ExportWhiteFunction.h */,
+				266F1EA521339A250014F022 /* ExportWhiteFunction.m */,
+				266F1EA621339A250014F022 /* frameworkWhiteList.plist */,
+				266F1EA221339A250014F022 /* functionWhiteList.plist */,
+			);
+			path = "函数名混淆";
+			sourceTree = "<group>";
+		};
 		BC268129210D5244001612CB = {
 			isa = PBXGroup;
 			children = (
@@ -97,18 +142,13 @@
 		BC268134210D5244001612CB /* MJB_Project */ = {
 			isa = PBXGroup;
 			children = (
+				266F1EA121339A250014F022 /* 函数名混淆 */,
+				266F1E9C213399E40014F022 /* 类名混淆 */,
+				266F1E982133948A0014F022 /* 静态变量 */,
 				BC268138210D5245001612CB /* ViewController.h */,
 				BC268139210D5245001612CB /* ViewController.m */,
-				F176DA8E21212BB8004D22A0 /* ConfusionClass.h */,
-				F176DA8D21212BB7004D22A0 /* ConfusionClass.m */,
-				F176DA8A21212B83004D22A0 /* ConfusionFunction.h */,
-				F176DA8B21212B83004D22A0 /* ConfusionFunction.m */,
-				F10528FA21252E2C00C23252 /* ExportWhiteFunction.h */,
-				F10528FB21252E2C00C23252 /* ExportWhiteFunction.m */,
-				F1FD76D7211C1AB3003F73AB /* classNameList.plist */,
-				F1FD76D9211C74E9003F73AB /* classWhiteList.plist */,
-				2690F633212A6B8400EF7FDB /* functionWhiteList.plist */,
-				2690F635212AA36E00EF7FDB /* frameworkWhiteList.plist */,
+				266F1EB12133CCC80014F022 /* ToolClass.h */,
+				266F1EB22133CCC80014F022 /* ToolClass.m */,
 				BC26813B210D524A001612CB /* Assets.xcassets */,
 				BC268135210D5244001612CB /* AppDelegate.h */,
 				BC268136210D5244001612CB /* AppDelegate.m */,
@@ -214,12 +254,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2690F634212A6B8400EF7FDB /* functionWhiteList.plist in Resources */,
+				266F1EAB21339A260014F022 /* frameworkWhiteList.plist in Resources */,
+				266F1EA821339A260014F022 /* functionWhiteList.plist in Resources */,
+				266F1E9F213399E40014F022 /* classWhiteList.plist in Resources */,
+				266F1EA0213399E40014F022 /* classNameList.plist in Resources */,
+				266F1EB02133AEB20014F022 /* variableWhiteList.plist in Resources */,
 				BC26813C210D524A001612CB /* Assets.xcassets in Resources */,
-				F1FD76DA211C74E9003F73AB /* classWhiteList.plist in Resources */,
-				F1FD76D8211C1AB3003F73AB /* classNameList.plist in Resources */,
 				BC26813F210D524A001612CB /* Main.storyboard in Resources */,
-				2690F636212AA36E00EF7FDB /* frameworkWhiteList.plist in Resources */,
+				266DB080213008C200FA2E93 /* staticVariableNameLsit.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,12 +279,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F176DA8C21212B83004D22A0 /* ConfusionFunction.m in Sources */,
-				F176DA8F21212BB8004D22A0 /* ConfusionClass.m in Sources */,
+				266F1EA921339A260014F022 /* ConfusionFunction.m in Sources */,
+				266F1EAE21339C280014F022 /* ConfusionClass.m in Sources */,
+				266F1EB32133CCC80014F022 /* ToolClass.m in Sources */,
+				266F1E9B2133948A0014F022 /* ConfusionStaticVariable.m in Sources */,
 				BC26813A210D5245001612CB /* ViewController.m in Sources */,
 				BC268142210D524A001612CB /* main.m in Sources */,
 				BC268137210D5245001612CB /* AppDelegate.m in Sources */,
-				F10528FC21252E2C00C23252 /* ExportWhiteFunction.m in Sources */,
+				266F1EAA21339A260014F022 /* ExportWhiteFunction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

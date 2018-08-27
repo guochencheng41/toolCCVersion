@@ -10,6 +10,7 @@
 #import "ConfusionClass.h"
 #import "ConfusionFunction.h"
 #import "ExportWhiteFunction.h"
+#import "ConfusionStaticVariable.h"
 @interface ViewController()
 
 @property (nonatomic, strong) NSString *sourceCodeDir;
@@ -62,19 +63,24 @@
 ///开始执行
 - (IBAction)startAction:(id)sender {
     //混淆类名
-    ConfusionClass *confusionClass = [[ConfusionClass alloc] init];
-    confusionClass.sourceCodeDir = self.sourceCodeDir;
-    confusionClass.projectFilePath = self.projectFilePath;
-    [confusionClass confusionClassName];
+//    ConfusionClass *confusionClass = [[ConfusionClass alloc] init];
+//    confusionClass.sourceCodeDir = self.sourceCodeDir;
+//    confusionClass.projectFilePath = self.projectFilePath;
+//    [confusionClass confusionClassName];
     
     //混淆函数名
 //    ConfusionFunction *confusionFunction = [[ConfusionFunction alloc] init];
-//    confusionFunction.sourceCodeDir = gSourceCodeDir;
+//    confusionFunction.sourceCodeDir = self.sourceCodeDir;
 //    [confusionFunction confusionFunction];
     
     //导出函数白名单
 //    ExportWhiteFunction *exportWhiteFunction = [[ExportWhiteFunction alloc] init];
 //    [exportWhiteFunction exportWhiteFunction:@"/Users/guochencheng/Desktop/白名单函数"];
+    
+    ConfusionStaticVariable *confusionVariable = [[ConfusionStaticVariable alloc] init];
+    confusionVariable.sourceCodeDir = self.sourceCodeDir;
+    [confusionVariable confusionStaticVariable];
+    
 }
 
 
