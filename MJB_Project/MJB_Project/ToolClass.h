@@ -9,9 +9,18 @@
 #import <Foundation/Foundation.h>
 
 @interface ToolClass : NSObject
-
 + (BOOL)isLetterWord:(NSString *)str;
 
 + (BOOL)isWhiteList:(NSString *)str listName:(NSString *)listName;
+
+//number 为0 ： 随机生成10 - 25位
++ (NSString *)getRandomStr:(NSInteger)number;
+
++ (MJBVariableTypes)getRandomType;
+
++ (NSString *)getTypeString:(MJBVariableTypes)type;
+
+//通过@implementation 获取类名
++ (NSString *)getClassNameByImplementation:(NSString *)originalString;
 
 @end

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>LOGDEBUG</string>
+	<string>LOGWARNING</string>
+	<string>LOGINFO</string>
+	<string>static</string>
+	<string>LOGERROR</string>
+	<string>LOGEXCP</string>
+	<string>TTLOG</string>
+	<string>MYLog</string>
+	<string>const</string>
+	<string>MMEND</string>
+	<string>extern</string>
+	<string>kCallNativeName</string>
+	<string>ACTION_IS_LOGIN</string>
+	<string>ACTION_CLOSE</string>
+	<string>ACTION_REFRESH</string>
+	<string>ACTION_SHOW_MESSAGE</string>
+	<string>ACTION_GET_STAR_INFO</string>
+	<string>ACTION_GET_ACCESS_TOKEN</string>
+	<string>ACTION_GET_USER_INFO</string>
+	<string>ACTION_GET_SYS_INFO</string>
+	<string>ACTION_GOTO_LOGIN</string>
+	<string>ACTION_GOTO_REGISTER</string>
+	<string>ACTION_GOTO_SHARE</string>
+	<string>context:</string>
+</array>
+</plist>

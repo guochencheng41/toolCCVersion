@@ -7,6 +7,7 @@
 //
 
 #import "ConfusionFunction.h"
+#import "ToolClass.h"
 #define strIsEmpty(str) ([str isKindOfClass:[NSNull class]]||str==nil||[str length]<1?YES:NO)
 static NSString* const kNotificationPrint = @"notificationPrint";
 @interface ConfusionFunction()
@@ -35,7 +36,7 @@ static NSString* const kNotificationPrint = @"notificationPrint";
             [self.functionWhiteList addObjectsFromArray:arr];
         }
         
-        self.randomString = [self getRandomStr:5];
+        self.randomString = [ToolClass getRandomStr:5];
     }
     return self;
 }
