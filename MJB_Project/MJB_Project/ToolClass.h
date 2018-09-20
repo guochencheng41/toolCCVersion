@@ -13,6 +13,7 @@
 
 + (BOOL)isWhiteList:(NSString *)str listName:(NSString *)listName;
 
++ (BOOL)haveNumberWord:(NSString *)str;
 //number 为0 ： 随机生成10 - 25位
 + (NSString *)getRandomStr:(NSInteger)number;
 
@@ -22,5 +23,7 @@
 
 //通过@implementation 获取类名
 + (NSString *)getClassNameByImplementation:(NSString *)originalString;
+
++ (BOOL)isContainClassify:(NSString *)originalString;
 
 @end

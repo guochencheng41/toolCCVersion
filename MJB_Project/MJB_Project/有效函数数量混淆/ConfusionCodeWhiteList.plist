@@ -8,6 +8,37 @@
 	<string>HSSetTableViewControllerConst</string>
 	<string>MMForm</string>
 	<string>HLLAttributedBuilder</string>
+	<string>TTShowUser</string>
 	<string>MMApplePurchaseHelper+BuyProducts</string>
+	<string>TTMessageModel</string>
+	<string>TTShowRoomStar</string>
+	<string>TTShowFollowStar</string>
+	<string>TTShowDataManager</string>
+	<string>GTMNSString+HTML</string>
+	<string>MM_CustomerLiveViewController+Keyboard</string>
+	<string>MMRunwayRocketContentView</string>
+	<string>MMRunwayCoreView</string>
+	<string>MMRunwayNormalContentView</string>
+	<string>MMRunwayManager</string>
+	<string>MMRunwayProContentView</string>
+	<string>MMGiftGifView</string>
+	<string>ChatMessageViewController</string>
+	<string>ChatSocket</string>
+	<string>ChatSocket+Chat</string>
+	<string>ChatMessageUtils</string>
+	<string>ChatSocket+ChatField</string>
+	<string>MM_CustomerLiveViewController+Video</string>
+	<string>UIViewController+GiftAnimation</string>
+	<string>MM_CustomerLiveViewController+Delegate</string>
+	<string>MM_CustomerLiveViewController</string>
+	<string>MM_CustomerLiveViewController+Remote</string>
+	<string>MM_CustomerLiveViewController+Gift</string>
+	<string>MM_CustomerLiveViewController+Wrapper</string>
+	<string>MM_CustomerLiveViewController+Frame</string>
+	<string>MM_CustomerLiveViewController+TopView</string>
+	<string>MM_WebViewController</string>
+	<string>MM_CardCollectionViewController</string>
+	<string>MMIMSocket</string>
+	<string>HttpClientSyn</string>
 </array>
 </plist>

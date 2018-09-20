@@ -10,7 +10,12 @@
 
 @interface ConfusionCode : NSObject
 //混淆类
-- (void)confusionClassCode:(NSString *)sourceCodeDir;
+
+@property (nonatomic, strong) NSMutableArray *modelNameArray;
+
+- (void)confusion:(NSString *)sourceCodeDir;
+
+- (NSMutableArray *)confunsionSpecifiedString:(NSMutableString *)originalString className:(NSString *)className;
 
 @end
 
@@ -23,5 +28,7 @@
 @property (nonatomic, assign) BOOL isStaticVariable;
 
 @property (nonatomic, assign) BOOL isClassification;
+
+@property (nonatomic, assign) BOOL isModel;
 
 @end

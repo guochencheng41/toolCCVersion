@@ -18,5 +18,22 @@
 	<string>TTShowUser</string>
 	<string>FileUtils</string>
 	<string>TTShowUIManager</string>
+	<string>AccountFindSmallSupportsChanges</string>
+	<string>MMTokenModel</string>
+	<string>MMFormOptionsObject</string>
+	<string>TTShowFriend</string>
+	<string>TTShowUserRank</string>
+	<string>TTShowGift</string>
+	<string>TTShowFollowRoomStar</string>
+	<string>Finance</string>
+	<string>DetailInfo</string>
+	<string>TTShowUser</string>
+	<string>IDModel</string>
+	<string>TTMessageModel</string>
+	<string>MMAccountLabelModel</string>
+	<string>MMSystemLabelModel</string>
+	<string>MM_LinkedMeModel</string>
+	<string>Hybrid</string>
+	<string>BagGift</string>
 </array>
 </plist>

@@ -71,7 +71,8 @@ static NSString* const kNotificationPrint = @"notificationPrint";
             //framework 忽略
             if ([className isEqualToString:@"framework"] ||
                 [fileExtension isEqualToString:@"framework"] ||
-                [fileCompleteClassName isEqualToString:@"framework"]) {
+                [fileCompleteClassName isEqualToString:@"framework"] ||
+                [className isEqualToString:@"YYModel"]) {
                 NSLog(@"%@ 函数define 忽略framework",filePath);
                 continue;
             }

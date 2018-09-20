@@ -228,8 +228,8 @@ static NSString* const kNotificationPrint = @"notificationPrint";
         NSRegularExpression *tLetterRegularExpression = [NSRegularExpression regularExpressionWithPattern:@"[A-Za-z]" options:NSRegularExpressionCaseInsensitive error:nil];
         NSInteger headStrCount = [tLetterRegularExpression numberOfMatchesInString:headStr options:NSMatchingReportProgress range:NSMakeRange(0, 1)];
         NSInteger endStrCount = [tLetterRegularExpression numberOfMatchesInString:endStr options:NSMatchingReportProgress range:NSMakeRange(0, 1)];
-        
-        if (((headStrCount + endStrCount) == 0) && ![endStr isEqualToString:@"_"] && ![headStr isEqualToString:@"_"]) {
+        NSString *twoHeadStr = [originalString substringWithRange:NSMakeRange(obj.range.location - 2, 2)];
+        if (((headStrCount + endStrCount) == 0) && ![endStr isEqualToString:@"_"] && ![headStr isEqualToString:@"_"] && ![twoHeadStr isEqualToString:@"@\""] ) {
             isChanged = YES;
             [originalString replaceCharactersInRange:obj.range withString:newString];
             NSLog(@"将%@ 替换为%@",regularExpression,newString);

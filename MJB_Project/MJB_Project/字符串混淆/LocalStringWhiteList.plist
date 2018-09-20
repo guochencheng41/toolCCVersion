@@ -13,18 +13,25 @@
 	<string>const</string>
 	<string>MMEND</string>
 	<string>extern</string>
-	<string>kCallNativeName</string>
-	<string>ACTION_IS_LOGIN</string>
-	<string>ACTION_CLOSE</string>
-	<string>ACTION_REFRESH</string>
-	<string>ACTION_SHOW_MESSAGE</string>
-	<string>ACTION_GET_STAR_INFO</string>
-	<string>ACTION_GET_ACCESS_TOKEN</string>
-	<string>ACTION_GET_USER_INFO</string>
-	<string>ACTION_GET_SYS_INFO</string>
-	<string>ACTION_GOTO_LOGIN</string>
-	<string>ACTION_GOTO_REGISTER</string>
-	<string>ACTION_GOTO_SHARE</string>
 	<string>context:</string>
+	<string>kitchenBringKhama</string>
+	<string>scenicGetOwn</string>
+	<string>OptGorgeousdrinkssupport</string>
+	<string>AfricastarChobeOwngrabbed</string>
+	<string>MaunwonderfulwonderfulKhamavalue</string>
+	<string>callNative</string>
+	<string>get_system_info</string>
+	<string>get_user_info</string>
+	<string>get_token</string>
+	<string>get_star_info</string>
+	<string>close</string>
+	<string>show_message</string>
+	<string>refresh</string>
+	<string>is_login</string>
+	<string>redirect_login</string>
+	<string>callNative</string>
+	<string>redirect_register</string>
+	<string>open_share</string>
+	<string>callNative</string>
 </array>
 </plist>

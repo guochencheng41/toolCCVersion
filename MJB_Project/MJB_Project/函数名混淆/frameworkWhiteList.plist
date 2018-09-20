@@ -2796,6 +2796,7 @@
 		<string>SSDKSetupTwitterByConsumerKey</string>
 		<string>SSDKSetupWeChatByAppId</string>
 		<string>SSDKSetupSinaWeiboByAppKey</string>
+		<string>didSelectRowAtIndexPath</string>
 	</array>
 </dict>
 </plist>

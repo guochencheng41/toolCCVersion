@@ -20,5 +20,17 @@
 	<string>cellHeight</string>
 	<string>on</string>
 	<string>margin</string>
+	<string>kCallNativeName</string>
+	<string>ACTION_GET_SYS_INFO</string>
+	<string>ACTION_GET_USER_INFO</string>
+	<string>ACTION_GET_ACCESS_TOKEN</string>
+	<string>ACTION_GET_STAR_INFO</string>
+	<string>ACTION_SHOW_MESSAGE</string>
+	<string>ACTION_CLOSE</string>
+	<string>ACTION_GOTO_SHARE</string>
+	<string>ACTION_REFRESH</string>
+	<string>ACTION_GOTO_REGISTER</string>
+	<string>ACTION_IS_LOGIN</string>
+	<string>ACTION_GOTO_LOGIN</string>
 </array>
 </plist>

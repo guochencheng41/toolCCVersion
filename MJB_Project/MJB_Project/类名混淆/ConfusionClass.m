@@ -212,12 +212,20 @@ BOOL regularReplacement(NSMutableString *originalString, NSString *regularExpres
             && ![headStr isEqualToString:@"/"])  //一些框架的引用会被错误的识别为类
         {
             //Format one: @class className
-            NSString *classPrefix = [originalString substringWithRange:NSMakeRange(obj.range.location - 7, 6)];
-            BOOL isOneFormat = [classPrefix isEqualToString:@"@class"];
+            NSString *classPrefix;
+            BOOL isOneFormat = NO;
+            if (obj.range.location > 7){
+                classPrefix = [originalString substringWithRange:NSMakeRange(obj.range.location - 7, 6)];
+                isOneFormat = [classPrefix isEqualToString:@"@class"];
+            }
             
             //Format two: @interface className
-            NSString *interfacePrefix = [originalString substringWithRange:NSMakeRange(obj.range.location - 11, 10)];
-            BOOL isTwoFormat = [interfacePrefix isEqualToString:@"@interface"];
+            NSString *interfacePrefix;
+            BOOL isTwoFormat = NO;
+            if (obj.range.location > 11) {
+                interfacePrefix = [originalString substringWithRange:NSMakeRange(obj.range.location - 11, 10)];
+                isTwoFormat = [interfacePrefix isEqualToString:@"@interface"];
+            }
             
             //Format three: className * || className*
             NSString *threeFormatEnd2 = [originalString substringWithRange:NSMakeRange(obj.range.location + obj.range.length, 2)];
@@ -227,8 +235,12 @@ BOOL regularReplacement(NSMutableString *originalString, NSString *regularExpres
             BOOL isFourFormat = [threeFormatEnd2 isEqualToString:@".h"] || [threeFormatEnd2 isEqualToString:@".m"] || [endStr isEqualToString:@"+"];
             
             //Format five: @implementation className
-            NSString *implementationPrefix = [originalString substringWithRange:NSMakeRange(obj.range.location - 16, 15)];
-            BOOL isFiveFormat = [implementationPrefix isEqualToString:@"@implementation"];
+            NSString *implementationPrefix;
+            BOOL isFiveFormat = NO;
+            if (obj.range.location > 16) {
+                implementationPrefix = [originalString substringWithRange:NSMakeRange(obj.range.location - 16, 15)];
+                isFiveFormat = [implementationPrefix isEqualToString:@"@implementation"];
+            }
             
             //Format six: [className ....
             BOOL isSixFormat = [headStr isEqualToString:@"["];
@@ -239,6 +251,12 @@ BOOL regularReplacement(NSMutableString *originalString, NSString *regularExpres
             
             //Format eight:    "ClassName"  字符串
             BOOL isEightFormat = [headStr isEqualToString:@"\""] && [endStr isEqualToString:@"\""];
+            if (obj.range.location > 10) {
+                NSString *headStr10 = [originalString substringWithRange:NSMakeRange(obj.range.location - 11, 11)];
+                if ([headStr10 containsString:@"property="]) {
+                    isEightFormat = NO;
+                }
+            }
             
             if (isOneFormat || isTwoFormat || isThreeFormat || isFourFormat || isFiveFormat || isSixFormat || isSevenFormat
                 || isEightFormat) {

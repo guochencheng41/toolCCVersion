@@ -17,6 +17,17 @@
     return headStrCount;
 }
 
++ (BOOL)haveNumberWord:(NSString *)str{
+    BOOL haveNumberWord = NO;
+    for (NSInteger number = 0; number < 10; number ++) {
+        if ([str containsString:[NSString stringWithFormat:@"%ld",number]]) {
+            haveNumberWord = YES;
+            break;
+        }
+    }
+    return haveNumberWord;
+}
+
 + (BOOL)isWhiteList:(NSString *)str listName:(NSString *)listName{
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:listName ofType:@"plist"];
     NSArray *arr = [NSArray arrayWithContentsOfFile:plistPath];
@@ -94,6 +105,30 @@
         className = [originalString substringWithRange:classNameRange];
     }];
     return className;
+}
+
++ (BOOL)isContainClassify:(NSString *)originalString{
+    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:@"@implementation " options:NSRegularExpressionDotMatchesLineSeparators error:nil];
+    NSArray<NSTextCheckingResult *> *matches = [expression matchesInString:originalString options:0 range:NSMakeRange(0, originalString.length)];
+    __block BOOL isClassify = NO;
+    [matches enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSTextCheckingResult * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSInteger classNameEndLocation = obj.range.location + obj.range.length;
+        NSString *nameHeadStr = [originalString substringWithRange:NSMakeRange(classNameEndLocation, 1)];
+        while ([ToolClass isLetterWord:nameHeadStr] || [nameHeadStr isEqualToString:@"_"]) {
+            classNameEndLocation ++;
+            nameHeadStr = [originalString substringWithRange:NSMakeRange(classNameEndLocation, 1)];
+        }
+        
+        NSString *endStr = [originalString substringWithRange:NSMakeRange(classNameEndLocation, 1)];
+        while ([endStr isEqualToString:@" "]) {
+            classNameEndLocation ++;
+            endStr = [originalString substringWithRange:NSMakeRange(classNameEndLocation, 1)];
+        }
+        if ([endStr isEqualToString:@"("]) {
+            isClassify = YES;
+        }
+    }];
+    return isClassify;
 }
 
 @end

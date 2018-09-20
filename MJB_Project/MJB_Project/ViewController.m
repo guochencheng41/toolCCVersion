@@ -13,6 +13,8 @@
 #import "ConfusionStaticVariable.h"
 #import "ConfusionLocalString.h"
 #import "ConfusionCode.h"
+#import "ConfunsionClassNumber.h"
+#import "ConfusionImageName.h"
 @interface ViewController()
 
 @property (nonatomic, strong) NSString *sourceCodeDir;
@@ -64,32 +66,42 @@
 
 ///开始执行
 - (IBAction)startAction:(id)sender {
-    //混淆类名
-//    ConfusionClass *confusionClass = [[ConfusionClass alloc] init];
-//    confusionClass.sourceCodeDir = self.sourceCodeDir;
-//    confusionClass.projectFilePath = self.projectFilePath;
-//    [confusionClass confusionClassName];
-    
-    //混淆函数名
-//    ConfusionFunction *confusionFunction = [[ConfusionFunction alloc] init];
-//    confusionFunction.sourceCodeDir = self.sourceCodeDir;
-//    [confusionFunction confusionFunction];
-    
-    //导出函数白名单
+//    //混淆图片
+    ConfusionImageName *imageName = [[ConfusionImageName alloc] init];
+    [imageName confusionImage:self.sourceCodeDir projectFile:self.projectFilePath];
+
+//    导出函数白名单
 //    ExportWhiteFunction *exportWhiteFunction = [[ExportWhiteFunction alloc] init];
 //    [exportWhiteFunction exportWhiteFunction:@"/Users/guochencheng/Desktop/白名单函数"];
+
+//    混淆静态变量
+    ConfusionStaticVariable *confusionVariable = [[ConfusionStaticVariable alloc] init];
+    confusionVariable.sourceCodeDir = self.sourceCodeDir;
+    [confusionVariable confusionStaticVariable];
+
+    //混淆代码块逻辑
+    ConfusionCode *confusionCode = [[ConfusionCode alloc] init];
+    [confusionCode confusion:self.sourceCodeDir];
     
-    //混淆静态变量
-//    ConfusionStaticVariable *confusionVariable = [[ConfusionStaticVariable alloc] init];
-//    confusionVariable.sourceCodeDir = self.sourceCodeDir;
-//    [confusionVariable confusionStaticVariable];
-    
-    //混淆字符串
-//    ConfusionLocalString *confusionLocalStr = [[ConfusionLocalString alloc] init];
-//    [confusionLocalStr confusionLocalString:self.sourceCodeDir];
-    
-    ConfusionCode *confusionFunction = [[ConfusionCode alloc] init];
-    [confusionFunction confusionClassCode:self.sourceCodeDir];
+    //混淆函数名
+    ConfusionFunction *confusionFunction = [[ConfusionFunction alloc] init];
+    confusionFunction.sourceCodeDir = self.sourceCodeDir;
+    [confusionFunction confusionFunction];
+
+    //混淆类名
+    ConfusionClass *confusionClass = [[ConfusionClass alloc] init];
+    confusionClass.sourceCodeDir = self.sourceCodeDir;
+    confusionClass.projectFilePath = self.projectFilePath;
+    [confusionClass confusionClassName];
+
+//    混淆字符串
+    ConfusionLocalString *confusionLocalStr = [[ConfusionLocalString alloc] init];
+    [confusionLocalStr confusionLocalString:self.sourceCodeDir];
+
+    //混淆类数量
+    ConfunsionClassNumber *classNumber = [[ConfunsionClassNumber alloc] init];
+    classNumber.modelNameArray = confusionCode.modelNameArray;
+    [classNumber confusionClassCode:self.sourceCodeDir];
 }
 
 

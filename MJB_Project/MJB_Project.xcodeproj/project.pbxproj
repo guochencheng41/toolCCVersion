@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		260C3BE4213A7B0D00E8419C /* ConfusionCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 260C3BE3213A7B0D00E8419C /* ConfusionCode.m */; };
 		260D5F57213E7C7C0093B5C5 /* ConfusionCodeWhiteList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 260D5F56213E7C7C0093B5C5 /* ConfusionCodeWhiteList.plist */; };
+		260DD2882144B0C700D269B3 /* WhiteFunctionList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 260DD2872144B0C700D269B3 /* WhiteFunctionList.plist */; };
+		266B9E2F214019AC0034F7BC /* ConfunsionClassNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 266B9E2E214019AC0034F7BC /* ConfunsionClassNumber.m */; };
 		266DB080213008C200FA2E93 /* staticVariableNameLsit.plist in Resources */ = {isa = PBXBuildFile; fileRef = 266DB07F213008C200FA2E93 /* staticVariableNameLsit.plist */; };
 		266F1E9B2133948A0014F022 /* ConfusionStaticVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = 266F1E992133948A0014F022 /* ConfusionStaticVariable.m */; };
 		266F1E9F213399E40014F022 /* classWhiteList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 266F1E9D213399E40014F022 /* classWhiteList.plist */; };
@@ -22,6 +24,7 @@
 		266F1EB32133CCC80014F022 /* ToolClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 266F1EB22133CCC80014F022 /* ToolClass.m */; };
 		266F1EB721342B520014F022 /* ConfusionLocalString.m in Sources */ = {isa = PBXBuildFile; fileRef = 266F1EB621342B520014F022 /* ConfusionLocalString.m */; };
 		266F1EBB2136983C0014F022 /* LocalStringWhiteList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 266F1EBA2136983C0014F022 /* LocalStringWhiteList.plist */; };
+		269E09B521414D590078ACD5 /* ConfusionImageName.m in Sources */ = {isa = PBXBuildFile; fileRef = 269E09B421414D590078ACD5 /* ConfusionImageName.m */; };
 		BC268137210D5245001612CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC268136210D5244001612CB /* AppDelegate.m */; };
 		BC26813A210D5245001612CB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC268139210D5245001612CB /* ViewController.m */; };
 		BC26813C210D524A001612CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC26813B210D524A001612CB /* Assets.xcassets */; };
@@ -44,6 +47,9 @@
 		260C3BE2213A7B0D00E8419C /* ConfusionCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfusionCode.h; sourceTree = "<group>"; };
 		260C3BE3213A7B0D00E8419C /* ConfusionCode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfusionCode.m; sourceTree = "<group>"; };
 		260D5F56213E7C7C0093B5C5 /* ConfusionCodeWhiteList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ConfusionCodeWhiteList.plist; sourceTree = "<group>"; };
+		260DD2872144B0C700D269B3 /* WhiteFunctionList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WhiteFunctionList.plist; sourceTree = "<group>"; };
+		266B9E2D214019AC0034F7BC /* ConfunsionClassNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfunsionClassNumber.h; sourceTree = "<group>"; };
+		266B9E2E214019AC0034F7BC /* ConfunsionClassNumber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfunsionClassNumber.m; sourceTree = "<group>"; };
 		266DB07F213008C200FA2E93 /* staticVariableNameLsit.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = staticVariableNameLsit.plist; sourceTree = "<group>"; };
 		266F1E992133948A0014F022 /* ConfusionStaticVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfusionStaticVariable.m; sourceTree = "<group>"; };
 		266F1E9A2133948A0014F022 /* ConfusionStaticVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfusionStaticVariable.h; sourceTree = "<group>"; };
@@ -65,6 +71,8 @@
 		266F1EBA2136983C0014F022 /* LocalStringWhiteList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = LocalStringWhiteList.plist; sourceTree = "<group>"; };
 		266F1EC121382A0E0014F022 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		266F1EC321382D800014F022 /* PublicHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicHeader.h; sourceTree = "<group>"; };
+		269E09B321414D590078ACD5 /* ConfusionImageName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfusionImageName.h; sourceTree = "<group>"; };
+		269E09B421414D590078ACD5 /* ConfusionImageName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfusionImageName.m; sourceTree = "<group>"; };
 		BC268132210D5244001612CB /* MJB_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJB_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC268135210D5244001612CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BC268136210D5244001612CB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -98,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2667637E213FB63700D9AB2F /* 类数量混淆 */ = {
+			isa = PBXGroup;
+			children = (
+				266B9E2D214019AC0034F7BC /* ConfunsionClassNumber.h */,
+				266B9E2E214019AC0034F7BC /* ConfunsionClassNumber.m */,
+			);
+			path = "类数量混淆";
+			sourceTree = "<group>";
+		};
 		266F1E982133948A0014F022 /* 静态变量 */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,8 +166,18 @@
 				260C3BE2213A7B0D00E8419C /* ConfusionCode.h */,
 				260C3BE3213A7B0D00E8419C /* ConfusionCode.m */,
 				260D5F56213E7C7C0093B5C5 /* ConfusionCodeWhiteList.plist */,
+				260DD2872144B0C700D269B3 /* WhiteFunctionList.plist */,
 			);
 			path = "有效函数数量混淆";
+			sourceTree = "<group>";
+		};
+		269E09B221414D340078ACD5 /* 图片名字混淆 */ = {
+			isa = PBXGroup;
+			children = (
+				269E09B321414D590078ACD5 /* ConfusionImageName.h */,
+				269E09B421414D590078ACD5 /* ConfusionImageName.m */,
+			);
+			path = "图片名字混淆";
 			sourceTree = "<group>";
 		};
 		BC268129210D5244001612CB = {
@@ -174,6 +201,8 @@
 		BC268134210D5244001612CB /* MJB_Project */ = {
 			isa = PBXGroup;
 			children = (
+				269E09B221414D340078ACD5 /* 图片名字混淆 */,
+				2667637E213FB63700D9AB2F /* 类数量混淆 */,
 				266F1EBC2136E33B0014F022 /* 有效函数数量混淆 */,
 				266F1EB421342B1F0014F022 /* 字符串混淆 */,
 				266F1EA121339A250014F022 /* 函数名混淆 */,
@@ -292,6 +321,7 @@
 			files = (
 				266F1EBB2136983C0014F022 /* LocalStringWhiteList.plist in Resources */,
 				266F1EAB21339A260014F022 /* frameworkWhiteList.plist in Resources */,
+				260DD2882144B0C700D269B3 /* WhiteFunctionList.plist in Resources */,
 				266F1EA821339A260014F022 /* functionWhiteList.plist in Resources */,
 				266F1E9F213399E40014F022 /* classWhiteList.plist in Resources */,
 				266F1EA0213399E40014F022 /* classNameList.plist in Resources */,
@@ -320,12 +350,14 @@
 				266F1EA921339A260014F022 /* ConfusionFunction.m in Sources */,
 				266F1EB721342B520014F022 /* ConfusionLocalString.m in Sources */,
 				266F1EAE21339C280014F022 /* ConfusionClass.m in Sources */,
+				269E09B521414D590078ACD5 /* ConfusionImageName.m in Sources */,
 				266F1EB32133CCC80014F022 /* ToolClass.m in Sources */,
 				266F1E9B2133948A0014F022 /* ConfusionStaticVariable.m in Sources */,
 				BC26813A210D5245001612CB /* ViewController.m in Sources */,
 				BC268142210D524A001612CB /* main.m in Sources */,
 				260C3BE4213A7B0D00E8419C /* ConfusionCode.m in Sources */,
 				BC268137210D5245001612CB /* AppDelegate.m in Sources */,
+				266B9E2F214019AC0034F7BC /* ConfunsionClassNumber.m in Sources */,
 				266F1EAA21339A260014F022 /* ExportWhiteFunction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

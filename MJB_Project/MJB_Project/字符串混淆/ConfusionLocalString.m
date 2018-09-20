@@ -8,6 +8,7 @@
 //10743 字符串
 
 #import "ConfusionLocalString.h"
+static NSString *keyString = @"LocalSrrayncontentsceCodeOfFilryAtPathgWhiteListDieExistsAtP";
 @interface ConfusionLocalString()
 
 @property (nonatomic, strong) NSArray *localStringList;
@@ -42,7 +43,9 @@
             if ([className isEqualToString:@"framework"] ||
                 [fileExtension isEqualToString:@"framework"] ||
                 [className isEqualToString:@"Library"] ||
-                [className isEqualToString:@"GTMNSString+HTML"]) {
+                [className isEqualToString:@"GTMNSString+HTML"] ||
+                [className isEqualToString:@"JSReactKit"] ||
+                [className isEqualToString:@"YYModel"]) {
                 NSLog(@"%@ 字符串混淆 忽略",filePath);
                 continue;
             }
@@ -134,9 +137,9 @@
             NSInteger random = arc4random() % (targetStrLength - 3);
             //有转义字符的情况  不能乱插
             if ([targetMutStr containsString:@"\\"]) {
-                [targetMutStr insertString:@"郭晨成是帅哥" atIndex:2];
+                [targetMutStr insertString:keyString atIndex:2];
             }else{
-                 [targetMutStr insertString:@"郭晨成是帅哥" atIndex:random + 2];
+                 [targetMutStr insertString:keyString atIndex:random + 2];
             }
             
             NSString *finallyStr = [NSString stringWithString:targetMutStr];

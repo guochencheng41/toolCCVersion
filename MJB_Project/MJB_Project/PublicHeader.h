@@ -11,7 +11,7 @@
 #import <Foundation/Foundation.h>
 
 static NSInteger variableTypesNumber = 4;  //对象类型
-static NSInteger variableTypesAllNumber = 6;  //对象类型
+static NSInteger variableTypesAllNumber = 6;  //
 static NSInteger confunsionStaticMinLength = 10;
 typedef NS_ENUM(NSInteger, MJBVariableTypes){
     MJBVariableTypeNSString = 0,

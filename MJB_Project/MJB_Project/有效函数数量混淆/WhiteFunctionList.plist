@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>- (void)destroyFramebuffer</string>
+	<string>(void)unregisterNotification</string>
+	<string>(void)stopAnimation</string>
+	<string>(void)removeSubviews</string>
+	<string>(void)hideNimgMengLoading</string>
+	<string>releaseDataSource</string>
+	<string>unregistNotification</string>
+	<string>(void)killTime</string>
+	<string>(void)deallocTime</string>
+	<string>(void) stopTimer</string>
+	<string>releaseTTMultiLineView</string>
+	<string>(void)dealloc</string>
+	<string>removeNotification</string>
+	<string>(void)unregisterKeyboardNotification</string>
+	<string>pageTipViewClick</string>
+	<string>fateMetClick</string>
+	<string>- (UIImageView*)animationImageView{</string>
+	<string>(NSArray *)observableKeypaths</string>
+	<string>(void)unregisterFromNotifications</string>
+	<string>(void)unregisterFromKVO</string>
+	<string>(UIView *)bgView{</string>
+	<string>- (UICollectionView *)collectionView</string>
+	<string>(MMPurchaseSucceededView *)purchaseSucceededView{</string>
+	<string>(MMActivateVipView *)activateVipView{</string>
+	<string>(UIView *)bgView</string>
+	<string>(MM_CongratulationCarView *)congratulationView</string>
+	<string>(MM_ActiveCarView *)activeCarView</string>
+	<string>- (DWKWebView *)dwkwebView</string>
+	<string>-(UITableView *)messageTable</string>
+</array>
+</plist>
